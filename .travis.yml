@@ -4,4 +4,5 @@ os:
 sudo: false
 language: cpp
 install:
+  - nvm install 0.12
   - npm install
