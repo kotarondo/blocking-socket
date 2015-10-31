@@ -6,3 +6,5 @@ language: cpp
 install:
   - nvm install 0.12
   - npm install
+script:
+  - ./test/test.sh
