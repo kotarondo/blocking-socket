@@ -31,7 +31,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-var bs = require('blocking-socket');
+var bs = require('../../blocking-socket');
 
 var fd = bs.open("tmp/socket");
 console.log("fd="+fd);

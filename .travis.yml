@@ -3,6 +3,8 @@ os:
   - osx
 sudo: false
 language: cpp
+node_js:
+  - "0.12"
 install:
   - nvm install 0.12
   - npm install
