@@ -37,6 +37,6 @@
   "devDependencies": {},
   "directories": {},
   "scripts": {
-    "test": "./test/test.sh",
+    "test": "./test/test.sh"
   }
 }
