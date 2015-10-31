@@ -1,6 +1,6 @@
 {
   "name": "blocking-socket",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "intentionally blocking unix-domain-socket (addon for Node.js)",
   "homepage": "http://github.com/kotarondo/blocking-socket",
   "author": "Kotaro Endo <kotarondo@gmail.com>",
