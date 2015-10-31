@@ -1,12 +1,10 @@
 os:
-  - linux
   - osx
 sudo: false
-language: cpp
+language: node_js
 node_js:
   - "0.12"
 install:
-  - nvm install 0.12
   - npm install
 script:
   - ./test/test.sh
