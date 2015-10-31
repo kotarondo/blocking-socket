@@ -33,6 +33,10 @@
 
 #include <node.h>
 #include <node_buffer.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <sys/un.h>
 
 namespace blocking_socket {
 
@@ -46,19 +50,35 @@ using v8::Value;
 using v8::Exception;
 
 int openBody(const char* name, size_t size) {
-	return size;
-}
-
-int closeBody(int fd) {
+	sockaddr_un addr;
+	if (size >= sizeof(addr.sun_path)) {
+		return -1;
+	}
+	memset(&addr, 0, sizeof(addr));
+	addr.sun_family = AF_UNIX;
+	memcpy(addr.sun_path, name, size);
+	int fd = socket(PF_UNIX, SOCK_STREAM, 0);
+	if (fd < 0) {
+		return -1;
+	}
+	int err = connect(fd, (struct sockaddr*) &addr, sizeof(addr));
+	if (err) {
+		close(fd);
+		return -1;
+	}
 	return fd;
 }
 
+int closeBody(int fd) {
+	return close(fd);
+}
+
 int sendBody(int fd, const char* buf, size_t size) {
-	return size;
+	return write(fd, buf, size);
 }
 
 int recvBody(int fd, char* buf, size_t size) {
-	return size;
+	return read(fd, buf, size);
 }
 
 void openMethod(const FunctionCallbackInfo<Value>& args) {
@@ -84,7 +104,8 @@ void sendMethod(const FunctionCallbackInfo<Value>& args) {
 		return;
 	}
 	int fd = args[0]->ToInteger()->NumberValue();
-	int len = sendBody(fd, node::Buffer::Data(args[1]), node::Buffer::Length(args[1]));
+	int len = sendBody(fd, node::Buffer::Data(args[1]),
+			node::Buffer::Length(args[1]));
 	args.GetReturnValue().Set(Number::New(isolate, len));
 }
 
@@ -97,7 +118,8 @@ void recvMethod(const FunctionCallbackInfo<Value>& args) {
 		return;
 	}
 	int fd = args[0]->ToInteger()->NumberValue();
-	int len = recvBody(fd, node::Buffer::Data(args[1]), node::Buffer::Length(args[1]));
+	int len = recvBody(fd, node::Buffer::Data(args[1]),
+			node::Buffer::Length(args[1]));
 	args.GetReturnValue().Set(Number::New(isolate, len));
 }
 
