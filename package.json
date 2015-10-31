@@ -1,13 +1,15 @@
 {
   "name": "blocking-socket",
   "version": "0.0.0",
-  "description": "intentionally blocking unix-domain-socket addon for Node.js",
+  "description": "intentionally blocking unix-domain-socket (addon for Node.js)",
   "homepage": "http://github.com/kotarondo/blocking-socket",
   "author": "Kotaro Endo <kotarondo@gmail.com>",
   "license": "BSD-3-Clause",
   "keywords": [
     "Node.js",
     "addon",
+    "unix-domain",
+    "IPC",
     "blocking",
     "socket"
   ],
