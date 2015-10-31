@@ -1,0 +1,7 @@
+os:
+  - linux
+  - osx
+sudo: false
+language: cpp
+install:
+  - npm install
