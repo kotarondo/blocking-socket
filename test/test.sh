@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd $(dirname $0)
+
 TIMEOUT=100
 
 killer(){
@@ -33,7 +35,7 @@ for i in *.js
 do
 f=${i##*/}
 j=${f%%.js}
-if [ $j == "test-server" ]; then
+if [ "$j" = "test-server" ]; then
 	continue;
 fi
 echo $j
