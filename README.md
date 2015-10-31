@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/kotarondo/blocking-socket.svg?branch=master)](https://travis-ci.org/kotarondo/blocking-socket)
 [![npm version](https://badge.fury.io/js/blocking-socket.svg)](https://badge.fury.io/js/blocking-socket)
 
-Blocking open/close/send/recv calls on unix domain sockets. These calls *intentionally* block the executing context. This module provides only simplest functionality implemented by a Node.js addon.
+Blocking open/close/send/recv calls on unix domain sockets. These calls intentionally *block* the executing context. This module provides only simplest functionality implemented by a Node.js addon.
 
 ## Installation
 
