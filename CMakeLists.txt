@@ -4,7 +4,7 @@ cmake_policy(SET CMP0042 NEW)
 
 project (blocking-socket)
 
-add_definitions(-DNAPI_VERSION=8)
+add_definitions(-DNAPI_VERSION=4)
 
 include_directories(${CMAKE_JS_INC})
 
