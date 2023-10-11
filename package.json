@@ -33,10 +33,12 @@
     "darwin",
     "linux"
   ],
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "cmake-js": "^7.2.1"
+  },
   "directories": {},
   "scripts": {
-    "test": "./test/test.sh"
+    "test": "./test/test.sh",
+    "install": "cmake-js compile"
   }
 }
