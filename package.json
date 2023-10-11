@@ -39,5 +39,9 @@
   "scripts": {
     "test": "./test/test.sh",
     "install": "cmake-js compile"
+  },
+  "cmake-js": {
+    "runtime": "node",
+    "runtimeVersion": "8.0.0"
   }
 }
